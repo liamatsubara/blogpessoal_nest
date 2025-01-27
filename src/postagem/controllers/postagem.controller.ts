@@ -3,7 +3,10 @@ import { PostagemService } from "../services/postagem.service";
 import { Postagem } from "../entities/postagem.entity";
 import { title } from "process";
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Postagem')
+@ApiBearerAuth()
 @UseGuards(JwtAuthGuard)
 @Controller("/postagens") // endereço do endpoint
 export class PostagemController{
